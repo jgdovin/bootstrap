@@ -470,7 +470,8 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
       // Issue #3973
       // Firefox treats right click as a click on document
       if (element[0] !== evt.target && evt.which !== 3 && scope.matches.length !== 0) {
-        resetMatches();
+        isNoResultsSetter(originalScope, false);
+	resetMatches();
         if (!$rootScope.$$phase) {
           originalScope.$digest();
         }
